@@ -30,7 +30,7 @@ from requests.auth import HTTPBasicAuth
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
 
-def get_request(url, **kwargs):
+def get_request(url, api_key=None, **kwargs):
     print("GET from {} ".format(url))
     print(kwargs)
     try:

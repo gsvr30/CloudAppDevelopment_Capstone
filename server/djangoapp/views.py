@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
-# from .models import related models
+from .models import CarModel
 # from .restapis import related methods
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
@@ -136,7 +136,7 @@ def add_review(request, dealer_id):
         # Get dealers from the URL
         dealerships = get_dealers_from_cf(url)
         first_or_default = next((x for x in dealerships if x.id == dealer_id), None)        
-        cars = CarModel.objects.filter(dealer_id=dealer_id)
+        cars = CarModel.objects.filter(dealerID=dealer_id)
         context = dict()
         context['cars'] = cars
         context['dealer'] = first_or_default
